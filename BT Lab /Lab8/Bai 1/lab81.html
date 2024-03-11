@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Upload file</title>
+  </head>
+  <body>
+    <input type="file" id="fileUpload" multiple onchange="updateFileList()" />
+
+    <div id="fileList"></div>
+
+    <script>
+      function updateFileList() {
+        const files = document.getElementById("fileUpload").files;
+
+        const filenames = [];
+
+        for (let i = 0; i < files.length; i++) {
+          filenames.push(files[i].name);
+        }
+
+        const fileList = document.getElementById("fileList");
+
+        fileList.innerHTML = "";
+
+        if (filenames.length === 0) {
+          fileList.innerHTML = "Không có file nào được chọn.";
+        }
+
+        for (let i = 0; i < filenames.length; i++) {
+          const p = document.createElement("p");
+          p.innerText = filenames[i];
+          fileList.appendChild(p);
+        }
+      }
+    </script>
+  </body>
+</html>

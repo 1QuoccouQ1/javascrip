@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var tl = prompt("Nhập trọng lượng cơ thể của bạn kg :");
+      var cd = prompt("Nhập chiều cao cơ thể của bạn là bao nhiêu m :");
+      var bmi = tl / (cd * cd);
+      if (bmi < 18.5) {
+        alert("Cơ thể của bạn đang thiếu cân");
+      } else if (bmi >= 18.5 && bmi < 25) {
+        alert("Cơ thể của bạn đang bình thường");
+      } else if (bmi >= 25 && bmi < 30) {
+        alert("Cơ thể của bạn đang thừa cân");
+      } else {
+        alert("Cơ thể của bạn đang béo phì");
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+#game-board,h1 {
+    margin: 0 auto;
+    text-align: center;
+}
+
+button {
+    font-size: 20px;
+    padding: 10px 20px;
+    margin: 20px 10px;
+    cursor: pointer;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 24px;
+    text-align: center;
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      #container {
+        margin: 0 auto;
+        width: 666px;
+        text-align: center;
+      }
+
+      #player-container {
+        margin: 0 auto;
+        background-color: black;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border: 3px solid #4cc1be;
+        border-radius: 7px;
+      }
+
+      #controls {
+        margin-top: 6px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h1>Custom HTML5 Video Player</h1>
+      <div id="player-container">
+        <video id="myplayer" width="640" height="360">
+          <source src="SeagullsMediumAltMaster.mp4" type="video/mp4" />
+          Your browser does not support HTML5 Video.
+        </video>
+        <div id="controls">
+          <button onclick="playPause()">Play/Pause</button>
+          <button onclick="stopVideo()">Stop</button>
+          <button onclick="replayVideo()">Replay</button>
+          <button onclick="increaseVolume()">Volume (+)</button>
+          <button onclick="decreaseVolume()">Volume (-)</button>
+          <button onclick="muteVolume()">Mute/Unmute</button>
+        </div>
+      </div>
+    </div>
+    -->
+
+    <script>
+      var player = document.getElementById("myplayer");
+
+      function playPause() {
+        if (player.paused) {
+          player.play();
+        } else {
+          player.pause();
+        }
+      }
+
+      function stopVideo() {
+        player.pause();
+        if (player.currentTime) {
+          player.currentTime = 0;
+        }
+      }
+
+      function replayVideo() {
+        player.currentTime = 0;
+        player.play();
+      }
+
+      function increaseVolume() {
+        if (player.volume < 1)
+          player.volume = parseFloat(player.volume + 0.1).toFixed(1);
+      }
+
+      function decreaseVolume() {
+        if (player.volume > 0)
+          player.volume = parseFloat(player.volume - 0.1).toFixed(1);
+      }
+
+      function muteVolume() {
+        if (player.muted) {
+          player.muted = false;
+        } else {
+          player.muted = true;
+        }
+      }
+    </script>
+  </body>
+</html>

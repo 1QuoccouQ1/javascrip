@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>DANH MỤC HÀNG HOÁ</h3>
+    <table border="1">
+      <tr>
+        <th>Sản phẩm</th>
+        <th>Giá</th>
+        <th>Mua</th>
+      </tr>
+      <tr>
+        <td>Iphone 9</td>
+        <td>$2700</td>
+        <td><button onclick="them(this)">Thêm</button></td>
+      </tr>
+      <tr>
+        <td>Nokia</td>
+        <td>$1200</td>
+        <td><button onclick="them(this)">Thêm</button></td>
+      </tr>
+      <tr>
+        <td>SamSung S20 Ultra</td>
+        <td>$3500</td>
+        <td><button onclick="them(this)">Thêm</button></td>
+      </tr>
+      <tr>
+        <td>Oppo redmid 3</td>
+        <td>$1800</td>
+        <td><button onclick="them(this)">Thêm</button></td>
+      </tr>
+    </table>
+    <h3>Giỏ hàng của bạn</h3>
+    <table border="1" id="cart"></table>
+    <h3>
+      Tổng số tiền: $
+      <span id="tong">0</span>
+    </h3>
+    <script>
+      // Khai báo hàm them()
+      function them(button) {
+        // Sao chép <tr> chứa button bị click thành node mới
+        var row = button.parentElement.parentElement.cloneNode(true);
+
+        // Tìm <button> trong node mới và sửa lại innerText và điều khiển sự kiện onclick
+        var btnXoa = row.getElementsByTagName("button")[0];
+        btnXoa.innerText = "Xóa";
+        btnXoa.setAttribute("onclick", "xoa(this)");
+
+        // Bổ sung node mới đã sửa vào table#cart
+        document.getElementById("cart").appendChild(row);
+
+        // Tính tổng tiền giỏ hàng
+        tinhTong();
+      }
+      // Khai báo hàm xoa()
+      function xoa(button) {
+        // Tìm <tr> chứa nút xóa bị click
+        var row = button.parentElement.parentElement;
+
+        // Xóa <tr> được tìm được khỏi table#cart
+        document.getElementById("cart").removeChild(row);
+
+        // Tính tổng tiền
+        tinhTong();
+      }
+      // Khai báo hàm tinhTong()
+      function tinhTong() {
+        // Lấy danh sách các thẻ <tr> trong table#cart
+        var cart = document.getElementById("cart");
+        var rows = cart.getElementsByTagName("tr");
+
+        // Duyệt danh sách <tr> và lấy giá từ thẻ <td> thứ 2 và cộng thêm vào biến tổng.
+        var tong = 0;
+        for (var i = 0; i < rows.length; i++) {
+          var cells = rows[i].getElementsByTagName("td");
+          var price = cells[1].innerText.substr(1); // Loại bỏ ký tự "$" ở đầu chuỗi giá
+          tong += 1 * price; // Chuyển giá thành số và cộng vào tổng
+        }
+
+        // Hiển thị tổng tiền
+        document.getElementById("tong").innerText = tong;
+      }
+    </script>
+  </body>
+</html>

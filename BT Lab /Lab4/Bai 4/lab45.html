@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="openWindow()">Mở cửa sổ mới</button>
+    <button onclick="closeWindow()">Đóng cửa sổ mới</button>
+    <button onclick="checkWindow()">
+      Kiểm tra cửa sổ mới đã đóng hay chưa
+    </button>
+
+    <script>
+      let newWindow;
+
+      function openWindow() {
+        let width, height;
+
+        if (navigator.userAgent.indexOf("MSIE") !== -1) {
+          // IE browser
+          width = 100;
+          height = 100;
+        } else {
+          // Other browsers
+          width = 150;
+          height = 150;
+        }
+
+        newWindow = window.open(
+          "",
+          "",
+          `toolbar=yes,menubar=yes,width=${width},height=${height}`
+        );
+      }
+
+      function closeWindow() {
+        newWindow.close();
+      }
+
+      function checkWindow() {
+        if (newWindow.closed === true) {
+          alert("Cửa sổ mới đã đóng.");
+        } else {
+          alert("Cửa sổ mới chưa đóng.");
+        }
+      }
+    </script>
+  </body>
+</html>

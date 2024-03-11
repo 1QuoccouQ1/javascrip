@@ -1,0 +1,20 @@
+.calculator {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 240px;
+    margin: 0 auto;
+  }
+  
+  .calculator button {
+    font-size: 20px;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+  }
+  .kq {
+    width: 100%;
+    margin: 5px 5px;
+    height: 60px;
+  }
+  

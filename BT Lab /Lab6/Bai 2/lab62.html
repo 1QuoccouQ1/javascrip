@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tic Tac Toe</title>
+  </head>
+  <style>
+    button {
+      width: 64px;
+      height: 64px;
+      font-size: 32px;
+      border: none;
+      outline: none;
+    }
+
+    #board {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 32px auto;
+      width: 256px;
+      height: 256px;
+    }
+  </style>
+  <body>
+    <div id="board">
+      <button onclick="mark(0)"></button>
+      <button onclick="mark(1)"></button>
+      <button onclick="mark(2)"></button>
+      <button onclick="mark(3)"></button>
+      <button onclick="mark(4)"></button>
+      <button onclick="mark(5)"></button>
+      <button onclick="mark(6)"></button>
+      <button onclick="mark(7)"></button>
+      <button onclick="mark(8)"></button>
+    </div>
+    <div id="message"></div>
+    <script>
+      // Khai báo biến toàn cục
+      var flag = true; // Để chọn nội dung cho nút (true: X, false: O)
+      var count = 0;
+      function mark(index) {
+        var button = document.getElementsByTagName("button")[index];
+        button.innerText = flag ? "X" : "O";
+        button.style.backgroundColor = flag ? "aqua" : "yellow";
+        button.setAttribute("disabled", "true");
+        flag = !flag; // Đảo cờ để lần sau hiển thị nội dung và màu nền khác
+
+        // Kiểm soát kết thúc game
+        count++; // Đếm số lần click
+        if (count == 8) {
+          // Nếu đã click 8 lần
+          alert("Game over!");
+          location.reload(); // Load lại trang web
+        }
+      }
+    </script>
+  </body>
+</html>

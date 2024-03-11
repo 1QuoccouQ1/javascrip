@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="hienThi();">Hiển thị</button>
+    <script>
+      const sv = {
+        hoTen: "",
+        Diem: "",
+        hocLuc: "",
+      };
+      sv.hoTen = prompt("Nhập Họ và Tên :");
+      sv.Diem = prompt("Nhập điểm :");
+      if (sv.Diem >= 5) {
+        sv.hocLuc = "Đậu";
+      } else {
+        sv.hocLuc = "Rớt";
+      }
+      function hienThi() {
+        document.write("<h3>Họ và tên : " + sv.hoTen + "</h3>");
+        document.write("<h3>Điểm TB : " + sv.Diem + "</h3>");
+        document.write("<h3>Học lực : " + sv.hocLuc + "</h3>");
+      }
+    </script>
+  </body>
+</html>

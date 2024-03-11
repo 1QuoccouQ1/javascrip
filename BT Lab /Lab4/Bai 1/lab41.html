@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let inventoryArray = [];
+      const item1 = {
+        name: "Áo sơ mi nam",
+        model: "ASM001",
+        cost: 250000,
+        quantity: 10,
+      };
+      const item2 = {
+        name: "Quần jean nam",
+        model: "QJN002",
+        cost: 350000,
+        quantity: 5,
+      };
+      const item3 = {
+        name: "Giày sneaker nữ",
+        model: "GSN003",
+        cost: 500000,
+        quantity: 3,
+      };
+
+      inventoryArray.push(item1);
+      inventoryArray.push(item2);
+      inventoryArray.push(item3);
+
+      console.log(inventoryArray);
+
+      console.log("Số lượng sản phẩm của", item3.name, "là", item3.quantity);
+
+      const item4 = {
+        name: "Quần jogger nam",
+        model: "QJG004",
+        cost: 400000,
+        quantity: 7,
+      };
+      inventoryArray.push(item4);
+      console.log(inventoryArray);
+
+      console.log("Giá bán của", item2.name, "là", item2.cost);
+    </script>
+  </body>
+</html>

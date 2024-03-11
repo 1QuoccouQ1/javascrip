@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .slideshow-images img {
+      width: 300px;
+      height: 300px;
+    }
+    img {
+      width: 300px;
+      height: 300px;
+    }
+  </style>
+  <body>
+    <img id="anh" src="img/0.jpeg" />
+    <button onclick="firstSlide()">First</button>
+    <button onclick="prevSlide()">Prev</button>
+    <button onclick="nextSlide()">Next</button>
+    <button onclick="lastSlide()">Last</button>
+    <script>
+      var imgs = [];
+      for (let i = 0; i < 5; i++) {
+        imgs[i] = new Image();
+        imgs[i].src = "img/" + i + ".jpeg";
+      }
+      var index = 0;
+      function firstSlide() {
+        index = 0;
+        var anh = document.getElementById("anh");
+        anh.src = imgs[index].src;
+      }
+      function lastSlide() {
+        index = imgs.length - 1;
+        var anh = document.getElementById("anh");
+        anh.src = imgs[index].src;
+      }
+      function nextSlide() {
+        index++;
+        if (index >= imgs.length) {
+          index = 0;
+        }
+        var anh = document.getElementById("anh");
+        anh.src = imgs[index].src;
+      }
+      function prevSlide() {
+        index--;
+        if (index < 0) {
+          index = imgs.length - 1;
+        }
+        var anh = document.getElementById("anh");
+        anh.src = imgs[index].src;
+      }
+    </script>
+  </body>
+</html>
